@@ -1,16 +1,17 @@
 from collections import deque
 
+
 def run_bfs(MAZE, START, GOAL):
     ROWS = len(MAZE)
     COLS = len(MAZE[0])
-    
+
     queue = deque([START])
     came_from = {START: None}
     visited_order = []
 
     while queue:
         current = queue.popleft()
-        
+
         if current not in visited_order:
             visited_order.append(current)
 
@@ -34,5 +35,5 @@ def run_bfs(MAZE, START, GOAL):
             path.append(node)
             node = came_from[node]
         path.reverse()
-    
+
     return path, visited_order
